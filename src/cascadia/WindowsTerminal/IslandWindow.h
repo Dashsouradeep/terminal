@@ -3,6 +3,12 @@
 
 #pragma once
 #include "BaseWindow.h"
+#include <cstdint>
+namespace winrt::Microsoft::Terminal::Settings::Model
+{
+    enum class MicaKind : int32_t;
+}
+which one should i do in islandwindow.h
 
 struct SystemMenuItemInfo
 {
@@ -70,7 +76,7 @@ public:
     void RemoveFromSystemMenu(const winrt::hstring& itemLabel);
 
     void UseDarkTheme(const bool v);
-    virtual void UseMica(const bool newValue, const double titlebarOpacity);
+    virtual void UseMica(const winrt::Microsoft::Terminal::Settings::Model::MicaKind micaKind, const double titlebarOpacity);
 
     til::event<winrt::delegate<>> DragRegionClicked;
     til::event<winrt::delegate<>> WindowCloseButtonClicked;
